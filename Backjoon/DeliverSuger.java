@@ -17,11 +17,12 @@ public class DeliverSuger {
 			System.out.println(N / 5);
 		
 		}else if (N % 5 !=0 && N > 6) {
-			int small = (N%5)/3;
+			int small = (N%5);
 			
-			if(small == 0) {
+			
+			if(small%3 == 0) {
 				
-				System.out.println((N%5) + small);
+				System.out.println((N%5) + (small/3));
 			
 			}else {
 				System.out.println(-1);
@@ -29,11 +30,11 @@ public class DeliverSuger {
 			
 		}
 		
-		if(N<=6 && N%3 == 0) {
-			System.out.println(N/3);
-		}else if(N <=6 && N%3 != 0) {
-			System.out.println(-1);
-		}
+//		if(N<=6 && N%3 == 0) {
+//			System.out.println(N/3);
+//		}else if(N <=6 && N%3 != 0) {
+//			System.out.println(-1);
+//		}
 		}
 
 	}
