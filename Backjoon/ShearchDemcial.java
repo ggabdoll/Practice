@@ -10,19 +10,38 @@ public class ShearchDemcial {
 	public static void main(String[] args) throws IOException{
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 		
+		boolean tf = true;
 		int M = Integer.parseInt(br.readLine());
 		int N = Integer.parseInt(br.readLine());
 		int sum = 0;
+		int min = 10000;
 		
 		for(int i = M; i <= N; i++) {
-			
-			if(i == 2 || i != 1 && i%2 == 1) {
-				sb.append(i);
+			if(i == 1) {
+				tf = false;
 			}
+			
+			for(int j = 2; j<i; j++) {
+				
+				if(i%j==0) {
+					tf = false;
+				}
+			}
+			if(tf == true) {
+				sum += i; 
+				if(min>i) {
+					min = i;
+					}
+			}
+			tf = true;
 		}
-		System.out.println(sum);
+		if(sum == 0) {
+			System.out.println(-1);
+		}else {
+			System.out.println(sum + "\n" + min);
+			
+		}
 	}
 
 }
