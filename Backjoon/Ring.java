@@ -13,25 +13,19 @@ public class Ring {
 
         int N = Integer.parseInt(br.readLine());
 
-        int arr[] = new int[N];
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
+        int firstRing = Integer.parseInt(st.nextToken());
 
-        for(int i = 0; i < N; i++){
-            st = new StringTokenizer(br.readLine()," ");
+        for(int i =1; i < N; i++){
 
-            arr[i] = Integer.parseInt(st.nextToken());
+            int otherRing = Integer.parseInt(st.nextToken());
 
-            for(int j = i+1; j < i+1; j++){
+            int d = gcd(firstRing, otherRing);
 
-                int d = gcd(arr[0], arr[j]);
+            System.out.println(firstRing / d + "/" + otherRing/d);
 
-                sb.append(arr[0] / d).append('/').append(arr[j] / d).append('\n');
-            }
         }
-
-        System.out.println(sb);
 
     }
 
