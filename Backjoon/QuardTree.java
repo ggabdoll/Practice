@@ -3,6 +3,7 @@ package Backjoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
 public class QuardTree {
 	
 	public static int[][] img;
@@ -11,6 +12,7 @@ public class QuardTree {
 	public static void main(String[] args)throws Exception {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 				
 		int N = Integer.parseInt(br.readLine());
 		img = new int[N][N];
@@ -29,28 +31,28 @@ public class QuardTree {
 	
 	public static void QuadTree(int x, int y, int size) {
 		
-		// ¾ÐÃàÀÌ °¡´ÉÇÒ °æ¿ì ÇÏ³ªÀÇ »ö»óÀ¸·Î ¾ÐÃàÇØÁØ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		if(isPossible(x, y, size)) {
 			sb.append(img[x][y]);
 			return;
 		}
 		
-		int newSize = size / 2;	// ¾ÐÃàÀÌ ºÒ°¡´É ÇÒ °æ¿ì »çÀÌÁî¸¦ Àý¹ÝÀ¸·Î ³ª´©¾î¾ß ÇÑ´Ù.
+		int newSize = size / 2;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		
-		sb.append('(');	// °¢ ·¹º§(depth)¿¡¼­ ¿©´Â°ýÈ£·Î ½ÃÀÛÇØ¾ßÇÑ´Ù. 
+		sb.append('(');	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(depth)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½. 
 		
-		QuadTree(x, y, newSize);						// ¿ÞÂÊ À§
-		QuadTree(x, y + newSize, newSize);				// ¿À¸¥ÂÊ À§
-		QuadTree(x + newSize, y, newSize);				// ¿ÞÂÊ ¾Æ·¡
-		QuadTree(x + newSize, y + newSize, newSize);	// ¿À¸¥ÂÊ ¾Æ·¡
+		QuadTree(x, y, newSize);						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		QuadTree(x, y + newSize, newSize);				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		QuadTree(x + newSize, y, newSize);				// ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½
+		QuadTree(x + newSize, y + newSize, newSize);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½
 		
-		sb.append(')');	// ÇØ´ç ·¹º§ÀÌ ³¡³ª¸é ´Ý´Â°ýÈ£µµ ´Ý¾ÆÁØ´Ù.
+		sb.append(')');	// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´Â°ï¿½È£ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½Ø´ï¿½.
 			
 		
 	}
 	
 	
-	// ¾ÐÃàÀÌ °¡´ÉÇÑÁö ÇØ´ç °ø°£À» Ã¼Å©ÇØÁÖ´Â ÇÔ¼ö
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
 	public static boolean isPossible(int x, int y, int size) {
 		int value = img[x][y];
 		
